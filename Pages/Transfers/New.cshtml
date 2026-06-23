@@ -1,0 +1,96 @@
+@page
+@model NewModel
+
+<section class="page-heading">
+    <span class="eyebrow dark">Operación bancaria</span>
+    <h1>Nueva transferencia</h1>
+    <p>Formulario Razor con validación y confirmación visual de operación.</p>
+</section>
+
+<section class="form-shell">
+    @if (!string.IsNullOrWhiteSpace(Model.ResultMessage))
+    {
+        <div class="form-alert @(Model.WasSubmitted ? "success" : "error")">
+            @Model.ResultMessage
+        </div>
+    }
+
+    @if (Model.Result is not null)
+    {
+        <article class="transfer-result">
+            <span class="eyebrow dark">Comprobante</span>
+            <h2>@Model.Result.ReferenceNumber</h2>
+
+            <div class="transfer-result-grid">
+                <div>
+                    <span>Origen</span>
+                    <strong>@Model.Result.SourceAccountNumber</strong>
+                </div>
+
+                <div>
+                    <span>Destino</span>
+                    <strong>@Model.Result.TargetAccountNumber</strong>
+                </div>
+
+                <div>
+                    <span>Monto</span>
+                    <strong>@Model.Result.Amount.ToString("N2") @Model.Result.Currency</strong>
+                </div>
+
+                <div>
+                    <span>Fecha UTC</span>
+                    <strong>@Model.Result.CreatedAtUtc.ToString("dd MMM yyyy HH:mm")</strong>
+                </div>
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(Model.Result.Description))
+            {
+                <p>@Model.Result.Description</p>
+            }
+        </article>
+    }
+
+    <form method="post" class="transfer-form">
+        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+        <div class="form-field">
+            <label asp-for="Transfer.SourceAccountNumber">Cuenta origen</label>
+            <select asp-for="Transfer.SourceAccountNumber">
+                <option value="">Selecciona una cuenta</option>
+                @foreach (var account in Model.Accounts)
+                {
+                    <option value="@account.AccountNumber">
+                        @account.Alias - @account.AccountNumber
+                    </option>
+                }
+            </select>
+            <span asp-validation-for="Transfer.SourceAccountNumber" class="field-validation"></span>
+        </div>
+
+        <div class="form-field">
+            <label asp-for="Transfer.TargetAccountNumber">Cuenta destino</label>
+            <input asp-for="Transfer.TargetAccountNumber" placeholder="Ej. ACC-2001" />
+            <span asp-validation-for="Transfer.TargetAccountNumber" class="field-validation"></span>
+        </div>
+
+        <div class="form-field">
+            <label asp-for="Transfer.Amount">Monto</label>
+            <input asp-for="Transfer.Amount" type="number" step="0.01" placeholder="0.00" />
+            <span asp-validation-for="Transfer.Amount" class="field-validation"></span>
+        </div>
+
+        <div class="form-field">
+            <label asp-for="Transfer.Description">Descripción</label>
+            <input asp-for="Transfer.Description" placeholder="Concepto de la transferencia" />
+            <span asp-validation-for="Transfer.Description" class="field-validation"></span>
+        </div>
+
+        <button type="submit" class="primary-button">
+            Registrar transferencia
+        </button>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -81,4 +81,18 @@ public class DashboardService
             }
         };
     }
+
+    public TransferResult CreateTransferResult(TransferRequest request)
+    {
+        return new TransferResult
+        {
+            ReferenceNumber = $"TRX-{DateTime.UtcNow:yyyyMMddHHmmss}",
+            SourceAccountNumber = request.SourceAccountNumber,
+            TargetAccountNumber = request.TargetAccountNumber.Trim().ToUpper(),
+            Amount = request.Amount,
+            Currency = "MXN",
+            Description = request.Description.Trim(),
+            CreatedAtUtc = DateTime.UtcNow
+        };
+    }
 }
