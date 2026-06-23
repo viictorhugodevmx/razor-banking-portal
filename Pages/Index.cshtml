@@ -15,25 +15,25 @@
 <section class="dashboard-grid">
     <article class="dashboard-card main-card">
         <span>Cliente</span>
-        <h2>@Model.CustomerName</h2>
-        <p>@Model.AccountNumber</p>
+        <h2>@Model.Account.CustomerName</h2>
+        <p>@Model.Account.AccountNumber</p>
     </article>
 
     <article class="dashboard-card">
         <span>Saldo disponible</span>
-        <h2>@Model.AvailableBalance.ToString("N2") @Model.Currency</h2>
+        <h2>@Model.Account.AvailableBalance.ToString("N2") @Model.Account.Currency</h2>
         <p>Balance actualizado al momento</p>
     </article>
 
     <article class="dashboard-card">
         <span>Transferencias pendientes</span>
-        <h2>@Model.PendingTransfers</h2>
+        <h2>@Model.Account.PendingTransfers</h2>
         <p>Operaciones por revisar</p>
     </article>
 
     <article class="dashboard-card">
         <span>Nivel de riesgo</span>
-        <h2>@Model.RiskLevel</h2>
+        <h2>@Model.Account.RiskLevel</h2>
         <p>Evaluación operativa inicial</p>
     </article>
 </section>
