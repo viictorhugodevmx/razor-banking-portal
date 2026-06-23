@@ -1,10 +1,39 @@
-﻿@page
+@page
 @model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="banking-hero">
+    <div>
+        <span class="eyebrow">Razor Banking Portal</span>
+        <h1>Dashboard financiero</h1>
+        <p>
+            Portal bancario renderizado con Razor Pages para practicar frontend .NET
+            con datos tipo fintech.
+        </p>
+    </div>
+</section>
+
+<section class="dashboard-grid">
+    <article class="dashboard-card main-card">
+        <span>Cliente</span>
+        <h2>@Model.CustomerName</h2>
+        <p>@Model.AccountNumber</p>
+    </article>
+
+    <article class="dashboard-card">
+        <span>Saldo disponible</span>
+        <h2>@Model.AvailableBalance.ToString("N2") @Model.Currency</h2>
+        <p>Balance actualizado al momento</p>
+    </article>
+
+    <article class="dashboard-card">
+        <span>Transferencias pendientes</span>
+        <h2>@Model.PendingTransfers</h2>
+        <p>Operaciones por revisar</p>
+    </article>
+
+    <article class="dashboard-card">
+        <span>Nivel de riesgo</span>
+        <h2>@Model.RiskLevel</h2>
+        <p>Evaluación operativa inicial</p>
+    </article>
+</section>
