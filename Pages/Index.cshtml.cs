@@ -7,6 +7,7 @@ public class IndexModel : PageModel
     private readonly DashboardService _dashboardService;
 
     public DashboardAccount Account { get; set; } = new();
+    public List<RecentMovement> RecentMovements { get; set; } = new();
 
     public IndexModel(DashboardService dashboardService)
     {
@@ -16,5 +17,6 @@ public class IndexModel : PageModel
     public void OnGet()
     {
         Account = _dashboardService.GetDashboardAccount();
+        RecentMovements = _dashboardService.GetRecentMovements();
     }
 }

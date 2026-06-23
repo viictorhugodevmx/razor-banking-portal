@@ -1,0 +1,23 @@
+@page
+@model AccountsModel
+
+<section class="page-heading">
+    <span class="eyebrow dark">Productos bancarios</span>
+    <h1>Cuentas</h1>
+    <p>Consulta de cuentas simuladas para practicar vistas Razor con datos fintech.</p>
+</section>
+
+<section class="accounts-list">
+    @foreach (var account in Model.Accounts)
+    {
+        <article class="account-row">
+            <div>
+                <span class="account-status @account.Status.ToLower()">@account.Status</span>
+                <h2>@account.Alias</h2>
+                <p>@account.AccountNumber · @account.ProductType</p>
+            </div>
+
+            <strong>@account.Balance.ToString("N2") @account.Currency</strong>
+        </article>
+    }
+</section>

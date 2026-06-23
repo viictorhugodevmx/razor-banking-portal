@@ -1,12 +1,16 @@
 html {
+  min-height: 100%;
   font-size: 14px;
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #f4f7fb;
   color: #172033;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -17,8 +21,23 @@ a {
   max-width: 1120px;
 }
 
+.app-header {
+  flex: 0 0 auto;
+}
+
+.app-main {
+  flex: 1 0 auto;
+  padding: 32px 0;
+}
+
+.app-footer {
+  flex: 0 0 auto;
+  padding: 12px 0;
+  background: #f8fafc;
+}
+
 .banking-hero {
-  margin: 32px 0 24px;
+  margin: 0 0 24px;
   padding: 36px;
   border-radius: 24px;
   background: linear-gradient(135deg, #10223f, #155eef);
@@ -46,6 +65,10 @@ a {
   text-transform: uppercase;
   font-weight: 700;
   color: #b8d4ff;
+}
+
+.eyebrow.dark {
+  color: #155eef;
 }
 
 .dashboard-grid {
@@ -95,7 +118,69 @@ a {
   color: rgba(255, 255, 255, 0.72);
 }
 
+.movements-section {
+  margin-top: 28px;
+  padding: 28px;
+  border-radius: 24px;
+  background: white;
+  border: 1px solid #e5eaf3;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 8px 0 0;
+  color: #101828;
+  font-size: 28px;
+}
+
+.movement-list {
+  display: grid;
+  gap: 12px;
+}
+
+.movement-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 1px solid #eef2f7;
+}
+
+.movement-row h3 {
+  margin: 4px 0;
+  color: #101828;
+  font-size: 17px;
+}
+
+.movement-row p {
+  margin: 0;
+  color: #667085;
+  font-size: 13px;
+}
+
+.movement-row strong {
+  color: #101828;
+  white-space: nowrap;
+}
+
+.movement-type {
+  color: #155eef;
+  font-weight: 800;
+  font-size: 13px;
+}
+
 @media (max-width: 768px) {
+  .app-main {
+    padding: 20px 0;
+  }
+
   .banking-hero {
     padding: 28px;
   }
@@ -106,5 +191,90 @@ a {
 
   .dashboard-grid {
     grid-template-columns: 1fr;
+  }
+
+  .movement-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.page-heading {
+  margin-bottom: 24px;
+  padding: 32px;
+  border-radius: 24px;
+  background: white;
+  border: 1px solid #e5eaf3;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.page-heading h1 {
+  margin: 8px 0;
+  color: #101828;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.page-heading p {
+  margin: 0;
+  color: #667085;
+}
+
+.accounts-list {
+  display: grid;
+  gap: 16px;
+}
+
+.account-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px;
+  border-radius: 20px;
+  background: white;
+  border: 1px solid #e5eaf3;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.account-row h2 {
+  margin: 8px 0;
+  color: #101828;
+  font-size: 22px;
+}
+
+.account-row p {
+  margin: 0;
+  color: #667085;
+}
+
+.account-row strong {
+  color: #101828;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.account-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.account-status.active {
+  color: #027a48;
+  background: #ecfdf3;
+}
+
+.account-status.blocked {
+  color: #b42318;
+  background: #fef3f2;
+}
+
+@media (max-width: 768px) {
+  .account-row {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
