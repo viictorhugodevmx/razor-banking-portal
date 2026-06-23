@@ -17,7 +17,16 @@
                 <p>@account.AccountNumber · @account.ProductType</p>
             </div>
 
-            <strong>@account.Balance.ToString("N2") @account.Currency</strong>
+            <div class="account-actions">
+                <strong>@account.Balance.ToString("N2") @account.Currency</strong>
+                <a
+                    class="secondary-button"
+                    asp-page="/Accounts/Detail"
+                    asp-route-accountNumber="@account.AccountNumber"
+                >
+                    Ver detalle
+                </a>
+            </div>
         </article>
     }
 </section>

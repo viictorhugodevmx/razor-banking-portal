@@ -1,0 +1,44 @@
+@page
+@model DetailModel
+
+@if (Model.AccountWasNotFound)
+{
+    <section class="empty-state">
+        <span class="eyebrow dark">Cuenta no encontrada</span>
+        <h1>No encontramos esa cuenta</h1>
+        <p>Verifica el número de cuenta e inténtalo nuevamente.</p>
+        <a class="primary-link" asp-page="/Accounts">Volver a cuentas</a>
+    </section>
+}
+else if (Model.Account is not null)
+{
+    <section class="page-heading">
+        <span class="eyebrow dark">Detalle de cuenta</span>
+        <h1>@Model.Account.Alias</h1>
+        <p>@Model.Account.AccountNumber · @Model.Account.ProductType</p>
+    </section>
+
+    <section class="account-detail-grid">
+        <article class="dashboard-card main-card">
+            <span>Saldo</span>
+            <h2>@Model.Account.Balance.ToString("N2") @Model.Account.Currency</h2>
+            <p>Saldo disponible actual</p>
+        </article>
+
+        <article class="dashboard-card">
+            <span>Estatus</span>
+            <h2>@Model.Account.Status</h2>
+            <p>Estado operativo de la cuenta</p>
+        </article>
+
+        <article class="dashboard-card">
+            <span>Producto</span>
+            <h2>@Model.Account.ProductType</h2>
+            <p>Tipo de producto bancario</p>
+        </article>
+    </section>
+
+    <div class="actions-row">
+        <a class="primary-link" asp-page="/Accounts">Volver a cuentas</a>
+    </div>
+}
