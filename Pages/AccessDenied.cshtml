@@ -1,0 +1,18 @@
+@page
+@model AccessDeniedModel
+
+<section class="access-denied-shell">
+    <article class="access-denied-card">
+        <span class="eyebrow dark">Seguridad</span>
+        <h1>Acceso denegado</h1>
+        <p>
+            No tienes permisos suficientes para consultar esta sección del portal.
+            Esta pantalla simula un flujo común de autorización en aplicaciones fintech.
+        </p>
+
+        <div class="actions-row">
+            <a class="primary-link" asp-page="/Index">Volver al dashboard</a>
+            <a class="secondary-button" asp-page="/Login">Ir al login</a>
+        </div>
+    </article>
+</section>

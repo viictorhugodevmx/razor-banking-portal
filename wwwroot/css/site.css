@@ -861,3 +861,35 @@ a {
   border: 1px solid #eef2f7;
   font-size: 14px;
 }
+
+.access-denied-shell {
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+}
+
+.access-denied-card {
+  width: 100%;
+  max-width: 680px;
+  padding: 36px;
+  border-radius: 28px;
+  background: white;
+  border: 1px solid #fecdca;
+  box-shadow: 0 18px 50px rgba(217, 45, 32, 0.10);
+}
+
+.access-denied-card h1 {
+  margin: 8px 0;
+  color: #b42318;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.access-denied-card p {
+  margin: 0;
+  color: #667085;
+}
+
+.login-actions {
+  margin-top: 16px;
+}
