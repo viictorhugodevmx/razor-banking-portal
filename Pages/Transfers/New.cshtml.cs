@@ -29,7 +29,11 @@ public class NewModel : PageModel
     {
         LoadAccounts();
 
-        if (Transfer.Amount <= 0)
+        if (Transfer.Amount is null)
+        {
+            ModelState.AddModelError("Transfer.Amount", "Captura el monto.");
+        }
+        else if (Transfer.Amount <= 0)
         {
             ModelState.AddModelError("Transfer.Amount", "El monto debe ser mayor a cero.");
         }

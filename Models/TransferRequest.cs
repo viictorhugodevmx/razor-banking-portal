@@ -11,8 +11,6 @@ public class TransferRequest
     [StringLength(20, MinimumLength = 6, ErrorMessage = "La cuenta destino debe tener entre 6 y 20 caracteres.")]
     public string TargetAccountNumber { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Captura el monto.")]
-    [Range(typeof(decimal), "0.01", "999999.99", ErrorMessage = "El monto debe ser mayor a cero.")]
     public decimal? Amount { get; set; }
 
     [StringLength(80, ErrorMessage = "La descripción no puede superar 80 caracteres.")]
