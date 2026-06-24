@@ -173,4 +173,57 @@ public class DashboardService
         };
     }
 
+
+    public List<RiskAlert> GetRiskAlerts()
+    {
+        return new List<RiskAlert>
+        {
+            new RiskAlert
+            {
+                AlertId = "RISK-001",
+                AccountNumber = "ACC-3001",
+                Severity = "High",
+                Title = "Cuenta bloqueada en revisión",
+                Detail = "La cuenta presenta bloqueo operativo y requiere validación manual.",
+                CreatedAtUtc = DateTime.UtcNow.AddHours(-5)
+            },
+            new RiskAlert
+            {
+                AlertId = "RISK-002",
+                AccountNumber = "ACC-1001",
+                Severity = "Medium",
+                Title = "Transferencia pendiente",
+                Detail = "Operación pendiente de revisión por monto y destino recurrente.",
+                CreatedAtUtc = DateTime.UtcNow.AddDays(-1)
+            },
+            new RiskAlert
+            {
+                AlertId = "RISK-003",
+                AccountNumber = "ACC-2001",
+                Severity = "Low",
+                Title = "Actividad normal",
+                Detail = "Actividad dentro de los parámetros esperados del cliente.",
+                CreatedAtUtc = DateTime.UtcNow.AddDays(-2)
+            }
+        };
+    }
+
+
+    public UserPreferences GetUserPreferences()
+    {
+        return new UserPreferences
+        {
+            Language = "es-MX",
+            Theme = "Light",
+            EmailNotifications = true,
+            TransferAlerts = true,
+            RiskAlerts = true
+        };
+    }
+
+    public UserPreferences SaveUserPreferences(UserPreferences preferences)
+    {
+        return preferences;
+    }
+
 }

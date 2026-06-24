@@ -710,3 +710,114 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+.risk-list {
+  display: grid;
+  gap: 16px;
+}
+
+.risk-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px;
+  border-radius: 22px;
+  background: white;
+  border: 1px solid #e5eaf3;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.risk-card.high {
+  border-left: 6px solid #d92d20;
+}
+
+.risk-card.medium {
+  border-left: 6px solid #dc6803;
+}
+
+.risk-card.low {
+  border-left: 6px solid #039855;
+}
+
+.risk-card h2 {
+  margin: 10px 0 8px;
+  color: #101828;
+  font-size: 22px;
+}
+
+.risk-card p {
+  margin: 0;
+  color: #667085;
+}
+
+.risk-severity {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.risk-severity.high {
+  color: #b42318;
+  background: #fef3f2;
+}
+
+.risk-severity.medium {
+  color: #b54708;
+  background: #fffaeb;
+}
+
+.risk-severity.low {
+  color: #027a48;
+  background: #ecfdf3;
+}
+
+.risk-meta {
+  display: grid;
+  gap: 4px;
+  min-width: 180px;
+  text-align: right;
+}
+
+.risk-meta strong {
+  color: #101828;
+}
+
+.risk-meta span,
+.risk-meta small {
+  color: #667085;
+}
+
+@media (max-width: 768px) {
+  .risk-card {
+    flex-direction: column;
+  }
+
+  .risk-meta {
+    text-align: left;
+  }
+}
+
+.settings-options {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #eef2f7;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #344054;
+  font-weight: 800;
+}
+
+.check-row input {
+  width: 18px;
+  height: 18px;
+}

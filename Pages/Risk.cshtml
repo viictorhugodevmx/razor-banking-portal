@@ -1,0 +1,27 @@
+@page
+@model RiskModel
+
+<section class="page-heading">
+    <span class="eyebrow dark">Riesgo</span>
+    <h1>Alertas de riesgo</h1>
+    <p>Listado simulado de alertas para practicar render condicional en Razor.</p>
+</section>
+
+<section class="risk-list">
+    @foreach (var alert in Model.Alerts)
+    {
+        <article class="risk-card @alert.Severity.ToLower()">
+            <div>
+                <span class="risk-severity @alert.Severity.ToLower()">@alert.Severity</span>
+                <h2>@alert.Title</h2>
+                <p>@alert.Detail</p>
+            </div>
+
+            <div class="risk-meta">
+                <strong>@alert.AlertId</strong>
+                <span>@alert.AccountNumber</span>
+                <small>@alert.CreatedAtUtc.ToString("dd MMM yyyy HH:mm") UTC</small>
+            </div>
+        </article>
+    }
+</section>

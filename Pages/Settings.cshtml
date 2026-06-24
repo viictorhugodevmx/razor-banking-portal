@@ -1,0 +1,67 @@
+@page
+@model SettingsModel
+
+<section class="page-heading">
+    <span class="eyebrow dark">Usuario</span>
+    <h1>Configuración</h1>
+    <p>Preferencias simuladas del portal bancario usando formulario Razor.</p>
+</section>
+
+<section class="form-shell">
+    @if (!string.IsNullOrWhiteSpace(Model.ResultMessage))
+    {
+        <div class="form-alert @(Model.WasSaved ? "success" : "error")">
+            @Model.ResultMessage
+        </div>
+    }
+
+    <form method="post" class="transfer-form">
+        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+        <div class="form-field">
+            <label asp-for="Preferences.Language">Idioma</label>
+            <select asp-for="Preferences.Language">
+                <option value="">Selecciona idioma</option>
+                <option value="es-MX">Español México</option>
+                <option value="en-US">English US</option>
+            </select>
+            <span asp-validation-for="Preferences.Language" class="field-validation"></span>
+        </div>
+
+        <div class="form-field">
+            <label asp-for="Preferences.Theme">Tema</label>
+            <select asp-for="Preferences.Theme">
+                <option value="">Selecciona tema</option>
+                <option value="Light">Claro</option>
+                <option value="Dark">Oscuro</option>
+                <option value="System">Sistema</option>
+            </select>
+            <span asp-validation-for="Preferences.Theme" class="field-validation"></span>
+        </div>
+
+        <div class="settings-options">
+            <label class="check-row">
+                <input asp-for="Preferences.EmailNotifications" />
+                <span>Recibir notificaciones por correo</span>
+            </label>
+
+            <label class="check-row">
+                <input asp-for="Preferences.TransferAlerts" />
+                <span>Alertas de transferencias</span>
+            </label>
+
+            <label class="check-row">
+                <input asp-for="Preferences.RiskAlerts" />
+                <span>Alertas de riesgo</span>
+            </label>
+        </div>
+
+        <button type="submit" class="primary-button">
+            Guardar preferencias
+        </button>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
