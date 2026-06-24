@@ -1,0 +1,39 @@
+@page
+@model AboutModel
+
+<section class="page-heading">
+    <span class="eyebrow dark">Cierre del módulo</span>
+    <h1>Razor Banking Portal</h1>
+    <p>
+        Portal bancario construido con Razor Pages para practicar frontend .NET
+        desde una perspectiva cercana a JS/TS.
+    </p>
+</section>
+
+<section class="about-grid">
+    <article class="dashboard-card main-card">
+        <span>Módulo</span>
+        <h2>Frontend .NET con Razor</h2>
+        <p>Renderizado del lado servidor usando páginas, modelos y partials.</p>
+    </article>
+
+    <article class="dashboard-card">
+        <span>Siguiente bloque</span>
+        <h2>Blazor</h2>
+        <p>Componentes más cercanos a React, pero usando C#.</p>
+    </article>
+</section>
+
+<section class="about-card">
+    <span class="eyebrow dark">Features completadas</span>
+
+    <div class="feature-list">
+        @foreach (var feature in Model.CompletedFeatures)
+        {
+            <div class="feature-item">
+                <span>✓</span>
+                <strong>@feature</strong>
+            </div>
+        }
+    </div>
+</section>
