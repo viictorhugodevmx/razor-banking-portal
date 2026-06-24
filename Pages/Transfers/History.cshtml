@@ -4,30 +4,68 @@
 <section class="page-heading">
     <span class="eyebrow dark">Operaciones</span>
     <h1>Historial de transferencias</h1>
-    <p>Consulta simulada de operaciones para practicar tablas y listados en Razor.</p>
+    <p>Consulta simulada de operaciones con filtro por estatus.</p>
+</section>
+
+<section class="filter-card">
+    <span>Filtrar por estatus</span>
+
+    <div class="filter-actions">
+        <a class="filter-pill @(Model.SelectedStatus == "All" ? "active" : "")"
+           asp-page="/Transfers/History">
+            All
+        </a>
+
+        <a class="filter-pill @(Model.SelectedStatus == "Completed" ? "active" : "")"
+           asp-page="/Transfers/History"
+           asp-route-status="Completed">
+            Completed
+        </a>
+
+        <a class="filter-pill @(Model.SelectedStatus == "Pending" ? "active" : "")"
+           asp-page="/Transfers/History"
+           asp-route-status="Pending">
+            Pending
+        </a>
+
+        <a class="filter-pill @(Model.SelectedStatus == "Rejected" ? "active" : "")"
+           asp-page="/Transfers/History"
+           asp-route-status="Rejected">
+            Rejected
+        </a>
+    </div>
 </section>
 
 <section class="history-card">
-    <div class="history-table">
-        <div class="history-row history-header">
-            <span>Referencia</span>
-            <span>Origen</span>
-            <span>Destino</span>
-            <span>Monto</span>
-            <span>Estatus</span>
-            <span>Fecha UTC</span>
+    @if (!Model.Transfers.Any())
+    {
+        <div class="empty-inline">
+            No hay transferencias para el filtro seleccionado.
         </div>
-
-        @foreach (var transfer in Model.Transfers)
-        {
-            <div class="history-row">
-                <span>@transfer.ReferenceNumber</span>
-                <span>@transfer.SourceAccountNumber</span>
-                <span>@transfer.TargetAccountNumber</span>
-                <strong>@transfer.Amount.ToString("N2") @transfer.Currency</strong>
-                <span class="transfer-status @transfer.Status.ToLower()">@transfer.Status</span>
-                <span>@transfer.CreatedAtUtc.ToString("dd MMM yyyy HH:mm")</span>
+    }
+    else
+    {
+        <div class="history-table">
+            <div class="history-row history-header">
+                <span>Referencia</span>
+                <span>Origen</span>
+                <span>Destino</span>
+                <span>Monto</span>
+                <span>Estatus</span>
+                <span>Fecha UTC</span>
             </div>
-        }
-    </div>
+
+            @foreach (var transfer in Model.Transfers)
+            {
+                <div class="history-row">
+                    <span>@transfer.ReferenceNumber</span>
+                    <span>@transfer.SourceAccountNumber</span>
+                    <span>@transfer.TargetAccountNumber</span>
+                    <strong>@transfer.Amount.ToString("N2") @transfer.Currency</strong>
+                    <span class="transfer-status @transfer.Status.ToLower()">@transfer.Status</span>
+                    <span>@transfer.CreatedAtUtc.ToString("dd MMM yyyy HH:mm")</span>
+                </div>
+            }
+        </div>
+    }
 </section>

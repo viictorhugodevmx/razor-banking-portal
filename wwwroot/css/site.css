@@ -571,3 +571,66 @@ a {
   color: #b42318;
   background: #fef3f2;
 }
+
+.filter-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 18px 22px;
+  border-radius: 20px;
+  background: white;
+  border: 1px solid #e5eaf3;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.filter-card > span {
+  color: #344054;
+  font-weight: 800;
+}
+
+.filter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: #155eef;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.filter-pill:hover {
+  color: #0f46b8;
+  background: #dbeafe;
+}
+
+.filter-pill.active {
+  color: white;
+  background: #155eef;
+  border-color: #155eef;
+}
+
+.empty-inline {
+  padding: 18px;
+  border-radius: 16px;
+  color: #667085;
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .filter-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
