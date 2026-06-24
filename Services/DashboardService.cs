@@ -148,4 +148,29 @@ public class DashboardService
         };
     }
 
+
+    public OperationalSummary GetOperationalSummary()
+    {
+        var accounts = GetAccounts();
+        var transfers = GetTransferHistory();
+
+        return new OperationalSummary
+        {
+            TotalAccounts = accounts.Count,
+            ActiveAccounts = accounts.Count(account =>
+                account.Status.Equals("Active", StringComparison.OrdinalIgnoreCase)),
+            BlockedAccounts = accounts.Count(account =>
+                account.Status.Equals("Blocked", StringComparison.OrdinalIgnoreCase)),
+            TotalTransfers = transfers.Count,
+            CompletedTransfers = transfers.Count(transfer =>
+                transfer.Status.Equals("Completed", StringComparison.OrdinalIgnoreCase)),
+            PendingTransfers = transfers.Count(transfer =>
+                transfer.Status.Equals("Pending", StringComparison.OrdinalIgnoreCase)),
+            RejectedTransfers = transfers.Count(transfer =>
+                transfer.Status.Equals("Rejected", StringComparison.OrdinalIgnoreCase)),
+            TotalTransferredAmount = transfers.Sum(transfer => transfer.Amount),
+            Currency = "MXN"
+        };
+    }
+
 }

@@ -1,0 +1,46 @@
+@page
+@model OperationsModel
+
+<section class="page-heading">
+    <span class="eyebrow dark">Backoffice</span>
+    <h1>Resumen operativo</h1>
+    <p>Métricas calculadas a partir de cuentas y transferencias simuladas.</p>
+</section>
+
+<section class="operations-grid">
+    <article class="dashboard-card main-card">
+        <span>Cuentas totales</span>
+        <h2>@Model.Summary.TotalAccounts</h2>
+        <p>@Model.Summary.ActiveAccounts activas · @Model.Summary.BlockedAccounts bloqueadas</p>
+    </article>
+
+    <article class="dashboard-card">
+        <span>Transferencias totales</span>
+        <h2>@Model.Summary.TotalTransfers</h2>
+        <p>Operaciones registradas</p>
+    </article>
+
+    <article class="dashboard-card">
+        <span>Completadas</span>
+        <h2>@Model.Summary.CompletedTransfers</h2>
+        <p>Transferencias exitosas</p>
+    </article>
+
+    <article class="dashboard-card">
+        <span>Pendientes</span>
+        <h2>@Model.Summary.PendingTransfers</h2>
+        <p>Operaciones por revisar</p>
+    </article>
+
+    <article class="dashboard-card">
+        <span>Rechazadas</span>
+        <h2>@Model.Summary.RejectedTransfers</h2>
+        <p>Operaciones no aprobadas</p>
+    </article>
+
+    <article class="dashboard-card">
+        <span>Monto operado</span>
+        <h2>@Model.Summary.TotalTransferredAmount.ToString("N2") @Model.Summary.Currency</h2>
+        <p>Total simulado en historial</p>
+    </article>
+</section>
