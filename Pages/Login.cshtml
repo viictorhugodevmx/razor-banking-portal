@@ -1,0 +1,46 @@
+@page
+@model LoginModel
+
+<section class="login-shell">
+    <article class="login-card">
+        <span class="eyebrow dark">Acceso</span>
+        <h1>Iniciar sesión</h1>
+        <p>Login visual simulado para practicar formularios Razor.</p>
+
+        @if (!string.IsNullOrWhiteSpace(Model.ResultMessage))
+        {
+            <div class="form-alert error">
+                @Model.ResultMessage
+            </div>
+        }
+
+        <form method="post" class="transfer-form">
+            <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+            <div class="form-field">
+                <label asp-for="Login.Email">Correo</label>
+                <input asp-for="Login.Email" placeholder="victor@razorbanking.dev" />
+                <span asp-validation-for="Login.Email" class="field-validation"></span>
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Login.Password">Contraseña</label>
+                <input asp-for="Login.Password" type="password" placeholder="Password123" />
+                <span asp-validation-for="Login.Password" class="field-validation"></span>
+            </div>
+
+            <button type="submit" class="primary-button">
+                Entrar
+            </button>
+        </form>
+
+        <div class="login-help">
+            <strong>Demo:</strong>
+            <span>victor@razorbanking.dev / Password123</span>
+        </div>
+    </article>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

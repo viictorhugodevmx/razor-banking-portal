@@ -821,3 +821,43 @@ a {
   width: 18px;
   height: 18px;
 }
+
+.login-shell {
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 32px;
+  border-radius: 28px;
+  background: white;
+  border: 1px solid #e5eaf3;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
+}
+
+.login-card h1 {
+  margin: 8px 0;
+  color: #101828;
+  font-size: 38px;
+  font-weight: 800;
+}
+
+.login-card p {
+  margin: 0 0 22px;
+  color: #667085;
+}
+
+.login-help {
+  display: grid;
+  gap: 4px;
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 16px;
+  color: #344054;
+  background: #f8fafc;
+  border: 1px solid #eef2f7;
+  font-size: 14px;
+}
