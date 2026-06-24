@@ -1,4 +1,5 @@
 @page
+@using RazorBankingPortal.Models
 @model HistoryModel
 
 <section class="page-heading">
@@ -33,15 +34,26 @@
            asp-route-status="Rejected">
             Rejected
         </a>
+
+        <a class="filter-pill @(Model.SelectedStatus == "Failed" ? "active" : "")"
+           asp-page="/Transfers/History"
+           asp-route-status="Failed">
+            Failed demo
+        </a>
     </div>
 </section>
 
 <section class="history-card">
     @if (!Model.Transfers.Any())
     {
-        <div class="empty-inline">
-            No hay transferencias para el filtro seleccionado.
-        </div>
+        <partial name="_EmptyState" model='new EmptyStateModel
+        {
+            Eyebrow = "Sin resultados",
+            Title = "No hay transferencias",
+            Message = "No encontramos operaciones para el filtro seleccionado.",
+            LinkPage = "/Transfers/History",
+            LinkText = "Ver todo el historial"
+        }' />
     }
     else
     {

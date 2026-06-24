@@ -1,0 +1,14 @@
+@model RazorBankingPortal.Models.NavLinkModel
+
+@{
+    var currentPage = ViewContext.RouteData.Values["page"]?.ToString() ?? string.Empty;
+    var isActive = currentPage.Equals(Model.Page, StringComparison.OrdinalIgnoreCase);
+}
+
+<li class="nav-item">
+    <a class="nav-link app-nav-link @(isActive ? "active" : "")"
+       asp-area=""
+       asp-page="@Model.Page">
+        @Model.Label
+    </a>
+</li>

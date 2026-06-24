@@ -1,0 +1,18 @@
+@model RazorBankingPortal.Models.EmptyStateModel
+
+<section class="empty-state reusable-empty-state">
+    @if (!string.IsNullOrWhiteSpace(Model.Eyebrow))
+    {
+        <span class="eyebrow dark">@Model.Eyebrow</span>
+    }
+
+    <h1>@Model.Title</h1>
+    <p>@Model.Message</p>
+
+    @if (!string.IsNullOrWhiteSpace(Model.LinkPage) && !string.IsNullOrWhiteSpace(Model.LinkText))
+    {
+        <a class="primary-link" asp-page="@Model.LinkPage">
+            @Model.LinkText
+        </a>
+    }
+</section>

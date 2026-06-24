@@ -893,3 +893,33 @@ a {
 .login-actions {
   margin-top: 16px;
 }
+
+.app-brand {
+  font-weight: 900;
+  color: #101828 !important;
+}
+
+.app-nav-link {
+  border-radius: 999px;
+  font-weight: 700;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.app-nav-link:hover {
+  color: #155eef !important;
+  background: #eff6ff;
+}
+
+.app-nav-link.active {
+  color: white !important;
+  background: #155eef;
+}
+
+.reusable-empty-state {
+  box-shadow: none;
+  border-style: dashed;
+}
+
+.reusable-empty-state .primary-link {
+  margin-top: 18px;
+}
