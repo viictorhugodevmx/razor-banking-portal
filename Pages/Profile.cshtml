@@ -1,0 +1,46 @@
+@page
+@model ProfileModel
+
+<section class="page-heading">
+    <span class="eyebrow dark">Cliente</span>
+    <h1>Perfil del cliente</h1>
+    <p>Información simulada del cliente para practicar vistas Razor orientadas a portal bancario.</p>
+</section>
+
+<section class="profile-grid">
+    <article class="profile-card main-profile-card">
+        <span>Nombre completo</span>
+        <h2>@Model.Customer.FullName</h2>
+        <p>@Model.Customer.CustomerNumber</p>
+    </article>
+
+    <article class="profile-card">
+        <span>Email</span>
+        <h2>@Model.Customer.Email</h2>
+        <p>Canal digital registrado</p>
+    </article>
+
+    <article class="profile-card">
+        <span>Teléfono</span>
+        <h2>@Model.Customer.PhoneNumber</h2>
+        <p>Contacto principal</p>
+    </article>
+
+    <article class="profile-card">
+        <span>Segmento</span>
+        <h2>@Model.Customer.Segment</h2>
+        <p>Clasificación comercial</p>
+    </article>
+
+    <article class="profile-card">
+        <span>Riesgo</span>
+        <h2>@Model.Customer.RiskLevel</h2>
+        <p>Nivel operativo actual</p>
+    </article>
+
+    <article class="profile-card">
+        <span>Alta UTC</span>
+        <h2>@Model.Customer.CreatedAtUtc.ToString("dd MMM yyyy")</h2>
+        <p>Fecha simulada de registro</p>
+    </article>
+</section>

@@ -133,4 +133,19 @@ public class DashboardService
         };
     }
 
+
+    public CustomerProfile GetCustomerProfile()
+    {
+        return new CustomerProfile
+        {
+            FullName = "Víctor Hugo Segundo Aguilar",
+            CustomerNumber = "CUS-1001",
+            Email = "victor@razorbanking.dev",
+            PhoneNumber = "+52 961 000 0000",
+            Segment = "Digital Banking",
+            RiskLevel = "Low",
+            CreatedAtUtc = DateTime.UtcNow.AddMonths(-8)
+        };
+    }
+
 }
