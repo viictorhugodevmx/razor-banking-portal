@@ -1,0 +1,33 @@
+@page
+@model HistoryModel
+
+<section class="page-heading">
+    <span class="eyebrow dark">Operaciones</span>
+    <h1>Historial de transferencias</h1>
+    <p>Consulta simulada de operaciones para practicar tablas y listados en Razor.</p>
+</section>
+
+<section class="history-card">
+    <div class="history-table">
+        <div class="history-row history-header">
+            <span>Referencia</span>
+            <span>Origen</span>
+            <span>Destino</span>
+            <span>Monto</span>
+            <span>Estatus</span>
+            <span>Fecha UTC</span>
+        </div>
+
+        @foreach (var transfer in Model.Transfers)
+        {
+            <div class="history-row">
+                <span>@transfer.ReferenceNumber</span>
+                <span>@transfer.SourceAccountNumber</span>
+                <span>@transfer.TargetAccountNumber</span>
+                <strong>@transfer.Amount.ToString("N2") @transfer.Currency</strong>
+                <span class="transfer-status @transfer.Status.ToLower()">@transfer.Status</span>
+                <span>@transfer.CreatedAtUtc.ToString("dd MMM yyyy HH:mm")</span>
+            </div>
+        }
+    </div>
+</section>
