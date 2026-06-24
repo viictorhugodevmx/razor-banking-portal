@@ -4,7 +4,7 @@
 <section class="page-heading">
     <span class="eyebrow dark">Operación bancaria</span>
     <h1>Nueva transferencia</h1>
-    <p>Formulario Razor con validación y confirmación visual de operación.</p>
+    <p>Formulario Razor con validación, confirmación visual y partial reutilizable.</p>
 </section>
 
 <section class="form-shell">
@@ -17,37 +17,7 @@
 
     @if (Model.Result is not null)
     {
-        <article class="transfer-result">
-            <span class="eyebrow dark">Comprobante</span>
-            <h2>@Model.Result.ReferenceNumber</h2>
-
-            <div class="transfer-result-grid">
-                <div>
-                    <span>Origen</span>
-                    <strong>@Model.Result.SourceAccountNumber</strong>
-                </div>
-
-                <div>
-                    <span>Destino</span>
-                    <strong>@Model.Result.TargetAccountNumber</strong>
-                </div>
-
-                <div>
-                    <span>Monto</span>
-                    <strong>@Model.Result.Amount.ToString("N2") @Model.Result.Currency</strong>
-                </div>
-
-                <div>
-                    <span>Fecha UTC</span>
-                    <strong>@Model.Result.CreatedAtUtc.ToString("dd MMM yyyy HH:mm")</strong>
-                </div>
-            </div>
-
-            @if (!string.IsNullOrWhiteSpace(Model.Result.Description))
-            {
-                <p>@Model.Result.Description</p>
-            }
-        </article>
+        <partial name="_TransferReceipt" model="Model.Result" />
     }
 
     <form method="post" class="transfer-form">

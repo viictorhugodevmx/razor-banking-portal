@@ -89,9 +89,9 @@ public class DashboardService
             ReferenceNumber = $"TRX-{DateTime.UtcNow:yyyyMMddHHmmss}",
             SourceAccountNumber = request.SourceAccountNumber,
             TargetAccountNumber = request.TargetAccountNumber.Trim().ToUpper(),
-            Amount = request.Amount,
+            Amount = request.Amount ?? 0,
             Currency = "MXN",
-            Description = request.Description.Trim(),
+            Description = request.Description?.Trim() ?? string.Empty,
             CreatedAtUtc = DateTime.UtcNow
         };
     }

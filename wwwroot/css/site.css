@@ -480,3 +480,33 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+.field-validation,
+.field-validation-error {
+  display: block;
+  margin-top: 4px;
+  color: #d92d20 !important;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.field-validation-valid {
+  display: none;
+}
+
+.validation-summary,
+.validation-summary-errors {
+  color: #d92d20 !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.validation-summary-errors ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.input-validation-error {
+  border-color: #f04438 !important;
+  background: #fffafa !important;
+}

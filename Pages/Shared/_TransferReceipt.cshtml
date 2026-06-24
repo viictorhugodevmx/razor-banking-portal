@@ -1,0 +1,33 @@
+@model RazorBankingPortal.Models.TransferResult
+
+<article class="transfer-result">
+    <span class="eyebrow dark">Comprobante</span>
+    <h2>@Model.ReferenceNumber</h2>
+
+    <div class="transfer-result-grid">
+        <div>
+            <span>Origen</span>
+            <strong>@Model.SourceAccountNumber</strong>
+        </div>
+
+        <div>
+            <span>Destino</span>
+            <strong>@Model.TargetAccountNumber</strong>
+        </div>
+
+        <div>
+            <span>Monto</span>
+            <strong>@Model.Amount.ToString("N2") @Model.Currency</strong>
+        </div>
+
+        <div>
+            <span>Fecha UTC</span>
+            <strong>@Model.CreatedAtUtc.ToString("dd MMM yyyy HH:mm")</strong>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(Model.Description))
+    {
+        <p>@Model.Description</p>
+    }
+</article>

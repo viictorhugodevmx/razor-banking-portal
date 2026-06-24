@@ -29,6 +29,11 @@ public class NewModel : PageModel
     {
         LoadAccounts();
 
+        if (Transfer.Amount <= 0)
+        {
+            ModelState.AddModelError("Transfer.Amount", "El monto debe ser mayor a cero.");
+        }
+
         if (!ModelState.IsValid)
         {
             ResultMessage = "Revisa los datos del formulario.";
